@@ -81,6 +81,12 @@ GUIID_Table_Init()
   GUIID_Table_Put(YDWERegisterTriggerMultiple);
   // LH Mark 4 Start
   GUIID_Table_Put(DzTriggerRegisterMouseEventMultiple);
+  GUIID_Table_Put(DzTriggerRegisterKeyEventMultiple);
+  GUIID_Table_Put(DzTriggerRegisterMouseWheelEventMultiple);
+  GUIID_Table_Put(DzTriggerRegisterMouseMoveEventMultiple);
+  GUIID_Table_Put(DzTriggerRegisterWindowResizeEventMultiple);
+  GUIID_Table_Put(DzFrameSetUpdateCallbackMultiple);
+  GUIID_Table_Put(DzFrameSetScriptMultiple);
   // LH Mark 4 End
   GUIID_Table_Put(YDWERegisterTriggerFlush);
   GUIID_Table_Put(YDWEForLoopLocVarMultiple);

@@ -57,7 +57,8 @@ namespace locvar
 			BLZSStrPrintf(buff, 260, "YDLocalGet(%s, %s, \"%s\")", s.handle_string, type_name, var_name);
 		}
 		//---------------------------------------- 1 -----------------------------------------
-		else if (s.mother_id == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+		else if ((s.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (s.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocal6Get(\"%s\", %s, \"%s\")", s.handle_string, type_name, var_name);
@@ -103,7 +104,8 @@ namespace locvar
 			BLZSStrPrintf(buff, 260, "call YDLocal5Set(%s, \"%s\", ", type_name, var_name);
 		}
 		// ------------------------- 2 ------------------------
-		else if (id == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+		else if ((id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			BLZSStrPrintf(buff, 260, "call YDLocal6Set(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
@@ -173,7 +175,8 @@ namespace locvar
 			BLZSStrPrintf(buff, 260, "YDLocalArrayGet(%s, %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
 		// --------------------------------- 3 -----------------------------------
-		else if (s.mother_id == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+		else if ((s.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (s.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocal6ArrayGet(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
@@ -224,7 +227,8 @@ namespace locvar
 			BLZSStrPrintf(buff, 260, "call YDLocal5ArraySet(%s, \"%s\", ", type_name, var_name);
 		}
 		//-------------------------- 4 --------------------------
-		else if (id == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+		else if ((id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			BLZSStrPrintf(buff, 260, "call YDLocal6ArraySet(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
@@ -333,7 +337,8 @@ namespace locvar
 		//--------------------------- 5 -------------------------------
 		if (global.mother_id == CC_GUIID_YDWETimerStartMultiple
 			|| global.mother_id == CC_GUIID_YDWERegisterTriggerMultiple
-			|| global.mother_id == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			|| (global.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple
+			&& global.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			CC_PutLocal_End(This, OutClass, TRUE, FALSE);
 		}
@@ -405,8 +410,14 @@ namespace locvar
 						case CC_GUIID_YDWERegisterTriggerMultiple:
 							ShowError(OutClass, "WESTRING_ERROR_YDTRIGGER_ILLEGAL_PARAMETER");
 							break;
-							//---------------------------- 7 -----------------------------
+						//---------------------------- 6 -----------------------------
 						case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+						case CC_GUIID_DzTriggerRegisterKeyEventMultiple:
+						case CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple:
+						case CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple:
+						case CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple:
+						case CC_GUIID_DzFrameSetUpdateCallbackMultiple:
+						case CC_GUIID_DzFrameSetScriptMultiple:
 						default:
 						{
 							CC_PutAction(nItemClass, OutClass, name, i, 0);
@@ -426,61 +437,39 @@ namespace locvar
 			}
 
 			auto uiit = trigger_data_ui.find(it.first);
+			int temp_int = 0;
 			if (uiit == trigger_data_ui.end())
 			{
-				if (index == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
-					locvar::do_set(OutClass, it.second.c_str(), index, it.first.c_str()
+				if (index >= CC_GUIID_DzTriggerRegisterMouseEventMultiple && index <= CC_GUIID_DzFrameSetScriptMultiple)
+					temp_int = index;
+				locvar::do_set(OutClass, it.second.c_str(), temp_int, it.first.c_str()
 						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
 						, [&]()
-					{
-						locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
-					}
-					);
-				else
-					locvar::do_set(OutClass, it.second.c_str(), 0, it.first.c_str()
-						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
-						, [&]()
-					{
-						locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
-					}
-					);
+				{
+					locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
+				}
+				);
 			}
 			else
 			{
-				if (index == CC_GUIID_DzTriggerRegisterMouseEventMultiple)
-					locvar::do_set(OutClass, it.second.c_str(), index, it.first.c_str()
+				if (index == CC_GUIID_DzTriggerRegisterMouseEventMultiple && index <= CC_GUIID_DzFrameSetScriptMultiple)
+					temp_int = index;
+				locvar::do_set(OutClass, it.second.c_str(), temp_int, it.first.c_str()
 						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
 						, [&]()
+				{
+					if (global.mother_id == CC_GUIID_YDWETimerStartMultiple)
 					{
-						if (global.mother_id == CC_GUIID_YDWETimerStartMultiple)
-						{
-							locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
-							//PUT_CONST(it.first.c_str(), 0);
-							//PUT_CONST("()", 0);
-						}
-						else
-						{
-							PUT_CONST(it.first.c_str(), 0);
-							PUT_CONST("()", 0);
-						}
-					});
-				else
-					locvar::do_set(OutClass, it.second.c_str(), 0, it.first.c_str()
-						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
-						, [&]()
+						locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
+						//PUT_CONST(it.first.c_str(), 0);
+						//PUT_CONST("()", 0);
+					}
+					else
 					{
-						if (global.mother_id == CC_GUIID_YDWETimerStartMultiple)
-						{
-							locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
-							//PUT_CONST(it.first.c_str(), 0);
-							//PUT_CONST("()", 0);
-						}
-						else
-						{
-							PUT_CONST(it.first.c_str(), 0);
-							PUT_CONST("()", 0);
-						}
-					});
+						PUT_CONST(it.first.c_str(), 0);
+						PUT_CONST("()", 0);
+					}
+				});
 			}
 		}
 		register_var.erase(name);

@@ -143,9 +143,15 @@ void _fastcall
 			break; 
 		// LH Mark 3 Start
 		case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
-			CC_PutLocal_LocalVar(OutClass, CC_TYPE_string, "dzl", "string");
-			CC_PutLocal_Search(nItemClass, OutClass, isSearchHashLocal, 0);
-			break;
+			//CC_PutLocal_LocalVar(OutClass, CC_TYPE_string, "dzl", "string");
+			//CC_PutLocal_Search(nItemClass, OutClass, isSearchHashLocal, 0);
+			//break;
+		case CC_GUIID_DzTriggerRegisterKeyEventMultiple:
+		case CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple:
+		case CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple:
+		case CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple:
+		case CC_GUIID_DzFrameSetUpdateCallbackMultiple:
+		case CC_GUIID_DzFrameSetScriptMultiple:
 		// LH Mark 3 End
 		case CC_GUIID_YDWESetAnyTypeLocalVariable:
 		case CC_GUIID_YDWESetAnyTypeLocalArray:

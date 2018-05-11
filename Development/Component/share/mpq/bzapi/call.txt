@@ -146,9 +146,9 @@ category = BZ_HW
 returns = integer
 
 [DzGetTriggerKeyPlayer]
-title = "事件响应 - 获取触发按键事件的玩家"
-description = "获取触发按键事件的玩家"
-comment = "响应 [硬件] - 按键事件"
+title = "事件响应 - 获取触发硬件事件的玩家"
+description = "获取触发硬件事件的玩家"
+comment = "响应 [硬件] - 按键事件 滚轮事件 窗口大小变化事件"
 category = BZ_HW
 returns = player
 
@@ -167,6 +167,7 @@ category = BZ_GUI
 returns = frame
 [[.args]]
 type = string
+default = "name"
 [[.args]]
 type = frame
 default = DzGetGameUI
@@ -185,11 +186,13 @@ type = string
 default = FRAME
 [[.args]]
 type = string
+default = "name"
 [[.args]]
 type = frame
 default = DzGetGameUI
 [[.args]]
 type = string
+default = "template"
 [[.args]]
 type = integer
 default = 0

@@ -117,19 +117,11 @@ library BzAPI
         private integer DamageEventNumber = 0
     endglobals
 
-    function DzTriggerRegisterMouseEventFunc takes integer status, integer btn, string func returns nothing
-        call DzTriggerRegisterMouseEvent(null, btn, status, false, func)
-    endfunction
-
     function DzTriggerRegisterMouseEventTrg takes trigger trg, integer status, integer btn returns nothing
         if trg == null then
             return
         endif
         call DzTriggerRegisterMouseEvent(trg, btn, status, true, null)
-    endfunction
-
-    function DzTriggerRegisterKeyEventFunc takes integer status, integer btn, string func returns nothing
-        call DzTriggerRegisterKeyEvent(null, btn, status, false, func)
     endfunction
 
     function DzTriggerRegisterKeyEventTrg takes trigger trg, integer status, integer btn returns nothing
@@ -151,6 +143,13 @@ library BzAPI
             return
         endif
         call DzTriggerRegisterMouseWheelEvent(trg, true, null)
+    endfunction
+
+    function DzTriggerRegisterWindowResizeEventTrg takes trigger trg returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterWindowResizeEvent(trg, true, null)
     endfunction
 
     function DzF2I takes integer i returns integer

@@ -1,19 +1,19 @@
 ﻿[DzTriggerRegisterMouseWheelEventTrg]
-title = "鼠标滚轮事件 [dz]"
+title = "鼠标滚轮事件"
 description = "任意玩家滑动鼠标滚轮"
-comment = "请使用“获取触发按键事件的玩家”来获取，滚轮的方向由“获取滚轮变化值”的正负来判断"
+comment = "请使用“获取触发硬件事件的玩家”来获取触发玩家，滚轮的方向由“获取滚轮变化值”的正负来判断"
 category = BZ_HW
 
 [DzTriggerRegisterMouseMoveEventTrg]
-title = "鼠标移动事件 [dz]"
+title = "鼠标移动事件"
 description = "任意玩家移动鼠标"
-comment = "请使用“获取触发按键事件的玩家”来获取"
+comment = "请使用“获取触发硬件事件的玩家”来获取触发玩家"
 category = BZ_HW
 
 [DzTriggerRegisterMouseEventTrg]
 title = "注册鼠标事件"
 description = "任意玩家 ${key} ${actionkey} 时"
-comment = "请使用“获取触发按键事件的玩家”来获取"
+comment = "请使用“获取触发硬件事件的玩家”来获取触发玩家"
 category = BZ_HW
 [[.args]]
 type = gamekeyaction
@@ -23,9 +23,9 @@ type = gamekey
 default = "GameKey_Mouse_Left"
 
 [DzTriggerRegisterKeyEventTrg]
-title = "键盘事件 [dz]"
+title = "键盘事件"
 description = "任意玩家 ${keyaction} ${key} 时"
-comment = "请使用“获取触发按键事件的玩家”来获取"
+comment = "请使用“获取触发硬件事件的玩家”来获取触发玩家"
 category = BZ_HW
 [[.args]]
 type = gamekeyaction
@@ -33,6 +33,12 @@ default = "GameKeyAction_Press"
 [[.args]]
 type = gamekey
 default = "GameKey_A"
+
+[DzTriggerRegisterWindowResizeEventTrg]
+title = "窗口大小变化事件"
+description = "任意玩家改变窗口大小"
+comment = "请使用“获取触发硬件事件的玩家”来获取触发玩家。这个事件会在玩家拖动窗口大小时频繁触发"
+category = BZ_HW
 
 [DzTriggerRegisterSyncData]
 title = "数据同步"
