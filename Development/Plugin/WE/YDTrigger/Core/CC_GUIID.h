@@ -17,6 +17,9 @@ enum GUIID_User_Defined
   CC_GUIID_YDWETimerStartMultiple,
   CC_GUIID_YDWETimerStartFlush,
   CC_GUIID_YDWERegisterTriggerMultiple,
+  // LH Mark 1 Start
+  CC_GUIID_DzTriggerRegisterMouseEventMultiple,
+  // LH Mark 1 End
   CC_GUIID_YDWERegisterTriggerFlush,
   CC_GUIID_YDWEForLoopLocVarMultiple,
   CC_GUIID_YDWEForLoopLocVarIndex,

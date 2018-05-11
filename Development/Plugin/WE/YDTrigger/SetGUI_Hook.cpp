@@ -31,6 +31,15 @@ static multiples_mgr mgr = {
 			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
 		}
 	},
+	// LH Mark 6 Start
+	{
+		CC_GUIID_DzTriggerRegisterMouseEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	// LH Mark 6 End
 	{
 		CC_GUIID_YDWEEnumUnitsInRangeMultiple,
 		{

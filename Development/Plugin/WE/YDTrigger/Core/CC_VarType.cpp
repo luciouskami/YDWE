@@ -40,4 +40,6 @@ const char* TypeName[] = {
   "fogmodifier",
   "radian",
   "degree",
+  "frame"
+  // LH Mark 逆天局部变量 种类
 };

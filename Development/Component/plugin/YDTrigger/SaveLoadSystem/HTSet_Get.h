@@ -79,5 +79,6 @@
 #  define YDTRIGGER_degree(SG)                          YDTRIGGER_HT##SG##(Real)
 #  define YDTRIGGER_imagefile(SG)                       YDTRIGGER_HT##SG##(Str)
 #  define YDTRIGGER_modelfile(SG)                       YDTRIGGER_HT##SG##(Str)
+#  define YDTRIGGER_frame(SG)                           YDTRIGGER_HT##SG##(Integer)
 #                                                  
 #endif

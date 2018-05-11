@@ -182,6 +182,27 @@ void _fastcall CC_PutExternFuncEx(DWORD This, DWORD OutClass, char* name)
 			PUT_CONST("", 1);
 		}
 		break;
+	// LH Mark 5 Start
+	case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterMouseEventMultiple, name, name);
+
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sMT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		// 0-参数 1-动作
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	// LH Mark 5 End
 	default:
 		CC_PutExternFuncEx_TopDown(This, OutClass, name);
 		break;

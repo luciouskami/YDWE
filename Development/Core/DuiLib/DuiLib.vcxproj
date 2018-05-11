@@ -69,7 +69,7 @@
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>$(OpenSource)\minizip\bin\$(Configuration)\minizip.lib;$(OpenSource)png\lib\libpng.lib;$(OpenSource)zlib\lib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OpenSource)minizip\bin\$(Configuration)\minizip.lib;$(OpenSource)png\lib\libpng.lib;$(OpenSource)zlib\lib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -99,7 +99,7 @@
     <Link>
       <BaseAddress>
       </BaseAddress>
-      <AdditionalDependencies>$(OpenSource)\minizip\bin\$(Configuration)\minizip.lib;$(OpenSource)png\lib\libpng.lib;$(OpenSource)zlib\lib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OpenSource)minizip\bin\$(Configuration)\minizip.lib;$(OpenSource)png\lib\libpng.lib;$(OpenSource)zlib\lib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>

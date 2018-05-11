@@ -141,6 +141,12 @@ void _fastcall
 			CC_PutLocal_LocalVar( OutClass, CC_TYPE_trigger, "ydl", "trigger");
 			CC_PutLocal_Search(nItemClass, OutClass, isSearchHashLocal, 0);
 			break; 
+		// LH Mark 3 Start
+		case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+			CC_PutLocal_LocalVar(OutClass, CC_TYPE_string, "dzl", "string");
+			CC_PutLocal_Search(nItemClass, OutClass, isSearchHashLocal, 0);
+			break;
+		// LH Mark 3 End
 		case CC_GUIID_YDWESetAnyTypeLocalVariable:
 		case CC_GUIID_YDWESetAnyTypeLocalArray:
 			if (isSearchHashLocal)

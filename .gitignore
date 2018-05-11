@@ -16,3 +16,4 @@
 *.sqlite
 *.vs/
 OpenSource/Boost/
+OpenSource/lpeg/project/lpeg.vcxproj

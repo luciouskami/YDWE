@@ -289,6 +289,39 @@ void _fastcall
 
 			break;
 		}
+	// LH Mark 2 Start
+	case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+	{
+		//这个trigger只是用来存哈希表，兼容逆天局部变量的
+		/*
+		CC_PutBegin();
+		PUT_CONST("set " DZL_STRING " = ", 0);
+		BLZSStrPrintf(buff, 260, "\"%s\"", name);
+		PUT_CONST(buff, 1);
+		CC_PutEnd();*/
+
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterMouseEventMultiple, name, CC_GUIID_DzTriggerRegisterMouseEventMultiple);
+
+		//开始插入语句
+		CC_PutBegin();
+		//PUT_CONST 插入字符串常量，第二个参数0为不换行，1为换行
+		//PUT_VAR	插入变量，第二个参数表示动作中的第几个参数，从0开始
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterMouseEventByCode( null, ", 0);
+		PUT_VAR(This, 2);
+		PUT_CONST(", ", 0);
+		PUT_VAR(This, 1);
+		PUT_CONST(", false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sMT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	// LH Mark 2 End
 	case CC_GUIID_YDWERegisterTriggerFlush:
 		locvar::flush_in_trigger(This, OutClass);
 		break;
