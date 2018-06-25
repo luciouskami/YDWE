@@ -2612,7 +2612,7 @@ Trigger01Action03=CommentString,"　　你可以由YDWE附带的演示地图开�
 Trigger01Action04=CommentString,"　　当你的地图意外损坏时，你可以在backups目录找到你最近26次保存的地图。"
 Trigger01Action05=CommentString,"　　当你的YDWE不能正常工作时，你可以前往www.ydwe.net联系我们。"
 Trigger01Action06=CommentString,"================================================================="
-Trigger01Action07=CommentString,"　　这是一个内嵌了暴雪API的版本"
+Trigger01Action07=CommentString,"　　内嵌暴雪API"
 
 [AIFunctionStrings]
 TownThreatened="基地被攻击"

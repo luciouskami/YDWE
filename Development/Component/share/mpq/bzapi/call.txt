@@ -312,7 +312,7 @@ returns = frame
 type = integer
 default = 0
 
-[DzFrameGetHeroManaBarr]
+[DzFrameGetHeroManaBar]
 title = "原生 - 英雄蓝条"
 description = "英雄蓝条:${buttnoid}"
 comment = "左侧的英雄头像下的蓝条，参数表示第N+1个英雄，索引从0开始"
