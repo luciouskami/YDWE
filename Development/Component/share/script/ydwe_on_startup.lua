@@ -29,17 +29,17 @@ local function check_conflicting_ui()
 	log.trace("check_conflicting_ui")
 	local file_list = {"ui/loading-yuexie.blp", "ui/miscdata.txt", "ui/triggerdata.txt", "ui/triggerstrings.txt", "ui/worldeditdata.txt", "ui/worldeditstrings.txt"}
 	local found = false
-	
+
 	for index, file in ipairs(file_list) do
 		if fs.exists(fs.war3_path() / file) then
 			found = true
 			break
 		end
 	end
-	
+
 	if found then
 		if gui.yesno_message(nil, string.format(_("YDWE has detected that there is a directory named \"%s\" located in Warcraft 3 installation directory. It may prevent YDWE from working. Do you want to delete it?"), 'UI'), _("YDWE")) then
-			for index, file in ipairs(file_list) do			
+			for index, file in ipairs(file_list) do
 				log.debug("remove file " .. (fs.war3_path() / file):string())
 				pcall(fs.remove_all, fs.war3_path() / file)
 			end
@@ -51,17 +51,17 @@ local function check_conflicting_units()
 	log.trace("check_conflicting_units")
 	local units_dir = fs.war3_path() / 'Units'
 	local found = false
-	
-	for file in units_dir:list_directory() do	
+
+	for file in units_dir:list_directory() do
 		if not fs.is_directory(file) then
 			found = true
 			break
 		end
 	end
-	
+
 	if found then
-		if gui.yesno_message(nil, _("YDWE has detected that there is a directory named \"%s\" located in Warcraft 3 installation directory. It may prevent YDWE from working. Do you want to delete it?"), 'Units') then		
-			for file in units_dir:list_directory() do	
+		if gui.yesno_message(nil, _("YDWE has detected that there is a directory named \"%s\" located in Warcraft 3 installation directory. It may prevent YDWE from working. Do you want to delete it?"), 'Units') then
+			for file in units_dir:list_directory() do
 				if not fs.is_directory(file) then
 					log.debug("remove file " .. file:string())
 					pcall(fs.remove_all, file)
@@ -100,12 +100,12 @@ local function get_war3_version_from_script()
 			return war3_version, err
 		end
 		mpq:close()
-		
+
 		local s, e = io.load(common_j_path)
-		if not s then			
+		if not s then
 			return war3_version, e
 		end
-		
+
 		if s:find("StringHash") then
 			return war3_version:new(), nil
 		else
@@ -139,14 +139,13 @@ end
 
 -- 显示制作者和感谢信息
 function show_credit()
-	we.message_show("    ------------------------------------------------------------")
-	we.message_show("           Welcome to YDWE, the best WE mod in China!           ")
-	we.message_show("    ------------------------------------------------------------")
-	we.message_show("    Program:    Actboy168, Aeris")
-	we.message_show("    UI & Jass:  Everguo, Fetrix_sai, Syj2010syj, Warft_TigerCN, Xylign")
-	we.message_show("    Art:        C kuhn")
-	we.message_show("    Official Site: http://www.ydwe.net")
-	we.message_show("    *** SPECIAL THANKS ***")
+	we.message_show("    ----------------------------------------------")
+	we.message_show("                 Welcome to WorldEdit             ")
+	we.message_show("    ----------------------------------------------")
+	we.message_show("    Official website: http://rpg.dz.163.com/")
+	we.message_show("    ")
+	we.message_show("    *** THANKS ***")
+	we.message_show("    YDWE Team")
 	we.message_show("    JassNewGenPack for ideas at www.wc3c.net")
 	we.message_show("    Vexorian for his jasshelper compiler")
 	we.message_show("    ADOLF and VD for their cjass compiler & TESH")
@@ -162,15 +161,15 @@ end
 -- 返回值：返回非负数表示成功，负数表示失败
 function event.EVENT_WE_START(event_data)
 	log.debug("********************* on startup start *********************")
-	
+
 	-- 读取版本
 	ydwe_version = sys.version { file = fs.ydwe_path() / "ydwe.exe" }
 	war3_version = sys.war3_version { file = fs.war3_path() / "game.dll" }
 
 	log.debug("ydwe version " .. tostring(ydwe_version))
 	log.debug("war3 version " .. tostring(war3_version))
-	
-	-- 刷新配置数据	
+
+	-- 刷新配置数据
 	global_config_reload()
 
 	-- 检测UI和Units目录
@@ -181,7 +180,7 @@ function event.EVENT_WE_START(event_data)
 	clear_potential_conflicting()
 
 	-- 检测魔兽的版本
-	check_war3_version()	
+	check_war3_version()
 
 	-- 载入Patch MPQ
 	mpq_util:load_mpq("units", 14)
@@ -192,11 +191,11 @@ function event.EVENT_WE_START(event_data)
 
 	-- 初始化UI加载器
 	uiloader:initialize()
-	
+
 	-- 载入注入代码配置
 	inject_code:initialize()
 	native:initialize()
-		
+
 	initialize_reg()
 
 	-- 显示感谢信息
