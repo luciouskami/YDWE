@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: YDWE Main Script\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-10 10:31+0800\n"
-"PO-Revision-Date: 2016-11-10 10:32+0800\n"
+"PO-Revision-Date: 2018-08-14 09:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: YDWE <417214250@qq.com>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: plugin\n"
 "X-Poedit-SearchPath-1: share/script\n"
 
@@ -42,7 +42,7 @@ msgstr "错误"
 
 #: share/script/ffi/gui.lua:40 share/script/ydwe_on_startup.lua:31
 msgid "YDWE"
-msgstr "YDWE"
+msgstr "WE"
 
 #: share/script/ydwe_on_menu.lua:52
 msgid "Export file"
@@ -52,7 +52,7 @@ msgstr "导出文件"
 msgid ""
 "Please enter the file path to export. Currently you can export only one file "
 "each time"
-msgstr "请输入需要导出的文件路径。当前仅支持每次导出一个文件。"
+msgstr "请输需要导出的文件路径。当前仅支持每次导出一个文件。"
 
 #: share/script/ydwe_on_menu.lua:55 share/script/ydwe_on_menu.lua:87
 #: share/script/ydwe_on_new_object_id.lua:84
@@ -90,11 +90,11 @@ msgstr "你输入的代码中有语法错误。"
 
 #: share/script/ydwe_on_menu.lua:124
 msgid "&YDWE"
-msgstr "YDWE(&Y)"
+msgstr "配置(&C)"
 
 #: share/script/ydwe_on_menu.lua:125
 msgid "YDWE &Config"
-msgstr "YDWE配置(&C)"
+msgstr "配置(&C)"
 
 #: share/script/ydwe_on_menu.lua:126
 msgid "Launch &Warcraft3"
@@ -112,10 +112,6 @@ msgstr "显示JassHelper的版本(&A)"
 msgid "Show c&Jass version"
 msgstr "显示cJass的版本(&J)"
 
-#: share/script/ydwe_on_menu.lua:130
-msgid "Launch YDWE &official website"
-msgstr "打开YDWE官方网站(&O)"
-
 #: share/script/ydwe_on_menu.lua:131
 msgid "&Export WE file"
 msgstr "导出WE文件(&E)"
@@ -127,6 +123,18 @@ msgstr "执行Lua代码(&L)"
 #: share/script/ydwe_on_menu.lua:133
 msgid "Cre&dits"
 msgstr "致谢(&D)"
+
+#: share/script/ydwe_on_menu.lua:134
+msgid "&Platform"
+msgstr "作者之家(&P)"
+
+#: share/script/ydwe_on_menu.lua:135
+msgid "Launch Platform &official website"
+msgstr "打开官网(&O)"
+
+#: share/script/ydwe_on_menu.lua:136
+msgid "Launch Author's &Home"
+msgstr "打开作者之家(&H)"
 
 #: share/script/ydwe_on_new_object_id.lua:81
 msgid "New Object Id"
@@ -160,8 +168,8 @@ msgid ""
 "3 installation directory. It may prevent YDWE from working. Do you want to "
 "delete it?"
 msgstr ""
-"YDWE检测到魔兽的安装路径下存在一个名为\"%s\"的文件夹。它可能影响YDWE运行，是"
-"否删除?"
+"WE检测到魔兽的安装路径下存在一个名为\"%s\"的文件夹。它可能影响WE运行，是否删"
+"除?"
 
 #: share/script/ydwe_on_startup.lua:123
 msgid ""

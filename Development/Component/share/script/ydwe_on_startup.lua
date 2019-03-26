@@ -9,7 +9,7 @@ war3_version = sys.war3_version {}
 local function initialize_reg()
 	local reg = registry.open [[HKEY_CURRENT_USER\Software\Blizzard Entertainment\WorldEdit]]
 	-- 不弹用户协议
-	reg["Has Been Run"] = { registry.REG_DWORD, 1 }
+	--reg["Has Been Run"] = { registry.REG_DWORD, 1 }
 	if not reg["Visible UI Elements"] then
 		-- 关掉刷子表
 		reg["Visible UI Elements"] = { registry.REG_DWORD, 0x2B }
@@ -27,7 +27,7 @@ end
 -- 检查魔兽目录下是否有可能引起冲突的文件夹
 local function check_conflicting_ui()
 	log.trace("check_conflicting_ui")
-	local file_list = {"ui/loading-yuexie.blp", "ui/miscdata.txt", "ui/triggerdata.txt", "ui/triggerstrings.txt", "ui/worldeditdata.txt", "ui/worldeditstrings.txt"}
+	local file_list = {"ui/WarcraftIIIFTLogo.blp", "ui/miscdata.txt", "ui/triggerdata.txt", "ui/triggerstrings.txt", "ui/worldeditdata.txt", "ui/worldeditstrings.txt"}
 	local found = false
 
 	for index, file in ipairs(file_list) do

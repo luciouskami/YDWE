@@ -69,6 +69,14 @@ DzAPI_Map_FlushStoredMission=0,player,string
 _DzAPI_Map_FlushStoredMission_Defaults=Player00,英雄等级
 _DzAPI_Map_FlushStoredMission_Category=TC_DZAPI
 
+DzAPI_Map_OrpgTrigger=0,player,string
+_DzAPI_Map_OrpgTrigger_Defaults=Player00,_
+_DzAPI_Map_OrpgTrigger_Category=TC_DZAPI
+DzAPI_Map_UseConsumablesItem=0,player,string
+_DzAPI_Map_UseConsumablesItem_Defaults=_,_
+_DzAPI_Map_UseConsumablesItem_Category=TC_DZAPI
+
+
 [TriggerCalls]
 DzAPI_Map_IsRedVIP=0,0,boolean,player
 _DzAPI_Map_IsRedVIP_Defaults=Player00,
@@ -155,6 +163,13 @@ _DzAPI_Map_GetGuildName_Category=TC_DZAPI
 DzAPI_Map_GetGuildRole=0,0,integer,player
 _DzAPI_Map_GetGuildRole_Defaults=Player00,
 _DzAPI_Map_GetGuildRole_Category=TC_DZAPI
+
+DzAPI_Map_GetServerArchiveDrop=0,0,string,player,string
+_DzAPI_Map_GetServerArchiveDrop_Defaults=Player00,_,
+_DzAPI_Map_GetServerArchiveDrop_Category=TC_DZAPI
+DzAPI_Map_GetPublicArchive=0,0,string,player,string
+_DzAPI_Map_GetPublicArchive_Defaults=_,_,
+_DzAPI_Map_GetPublicArchive_Category=TC_DZAPI
 
 [remove:TriggerActions]
 

@@ -2596,7 +2596,7 @@ OrderTypeOrderoff=0,OrderType,`Orderoff`,取消激活
 
 [DefaultTriggerCategories]
 NumCategories=1
-Category01="欢迎使用YDWE"
+Category01="欢迎使用世界编辑器"
 
 [DefaultTriggers]
 NumTriggers=1
@@ -2605,14 +2605,12 @@ Trigger01Comment=
 Trigger01Category=1
 Trigger01Events=0
 Trigger01Conditions=0
-Trigger01Actions=7
-Trigger01Action01=CommentString,"YDWE是《魔兽争霸III》地图编辑器的一个增强Mod。"
-Trigger01Action02=CommentString,"　　你可以从www.ydwe.net获取最新的YDWE。"
-Trigger01Action03=CommentString,"　　你可以由YDWE附带的演示地图开始，快速了解YDWE的功能。"
-Trigger01Action04=CommentString,"　　当你的地图意外损坏时，你可以在backups目录找到你最近26次保存的地图。"
-Trigger01Action05=CommentString,"　　当你的YDWE不能正常工作时，你可以前往www.ydwe.net联系我们。"
-Trigger01Action06=CommentString,"================================================================="
-Trigger01Action07=CommentString,"　　内嵌暴雪API"
+Trigger01Actions=5
+Trigger01Action01=CommentString,"欢迎使用世界编辑器，开始你的地图创造之旅。"
+Trigger01Action02=CommentString,"　　你可以从dz.163.com获取最新编辑器咨询。"
+Trigger01Action03=CommentString,"　　当你的地图意外损坏时，你可以在backups目录找到你最近26次保存的地图。"
+Trigger01Action04=CommentString,"　　任何疑问请加官方作者群：QQ35063417。"
+Trigger01Action05=CommentString,"================================================================="
 
 [AIFunctionStrings]
 TownThreatened="基地被攻击"

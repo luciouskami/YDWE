@@ -81,6 +81,14 @@ DzAPI_Map_FlushStoredMission=清理服务器数据 [DzAPI]
 DzAPI_Map_FlushStoredMission="服务器数据：清理",~whichPlayer,"数据,名称： ",~key
 DzAPI_Map_FlushStoredMissionHint="清理封装的接口记得在前面加对应的B、I、R、S"
 
+DzAPI_Map_OrpgTrigger=触发boss击杀
+DzAPI_Map_OrpgTrigger="设置 ",~whichPlayer," 触发击杀 ",~bosskey
+DzAPI_Map_OrpgTriggerHint=""
+
+DzAPI_Map_UseConsumablesItem=局数消耗商品调用 [NEW]
+DzAPI_Map_UseConsumablesItem="设置该局消耗 ",~whichPlayer," 的商品：",~key," 一个
+DzAPI_Map_UseConsumablesItemHint="仅对局数消耗型商品有效"
+
 [TriggerCallStrings]
 DzAPI_Map_IsRedVIP=判断是否是红V[DzAPI]
 DzAPI_Map_IsRedVIP="判断 ",~player," 是否是红V"
@@ -99,9 +107,9 @@ DzAPI_Map_IsRPGLadder="判断地图是否在RPG天梯"
 DzAPI_Map_IsRPGLadderHint=""
 
 
-DzAPI_Map_GetMatchType=获取天梯匹配模式 [DzAPI]
-DzAPI_Map_GetMatchType="获取天梯匹配模式"
-DzAPI_Map_GetMatchTypeHint="肉搏个人模式返回1002,团队模式1003"
+DzAPI_Map_GetMatchType=获取天梯和匹配的模式 [DzAPI]
+DzAPI_Map_GetMatchType="获取天梯和匹配的模式"
+DzAPI_Map_GetMatchTypeHint="返回数值与作者之家设置对应"
 
 DzAPI_Map_GetLadderLevel=获取天梯等级 [DzAPI]
 DzAPI_Map_GetLadderLevel="获取 ",~player," 天梯等级"
@@ -121,7 +129,7 @@ DzAPI_Map_GetMapLevelHint="获取玩家地图等级【RPG大厅限定】"
 
 DzAPI_Map_GetMapLevelRank=获取玩家地图等级排名 [DzAPI]
 DzAPI_Map_GetMapLevelRank="获取 ",~player," 的地图等级排名"
-DzAPI_Map_GetMapLevelRankHint="排名>1000的获取值为0"
+DzAPI_Map_GetMapLevelRankHint="排名>100的获取值为0"
 
 DzAPI_Map_GetMapConfig=获取全局服务器存档值 [DzAPI]
 DzAPI_Map_GetMapConfig="获取全局存档名称:",~key," 里存储的字符串."
@@ -175,5 +183,14 @@ DzAPI_Map_GetGuildNameHint=""
 DzAPI_Map_GetGuildRole=获取公会职责[DzAPI]
 DzAPI_Map_GetGuildRole="获取 ",~whichPlayer," 公会职责"
 DzAPI_Map_GetGuildRoleHint="获取公会职责 Member=10 Admin=20 Leader=30"
+
+
+DzAPI_Map_GetServerArchiveDrop=读取服务器Boss掉落装备类型
+DzAPI_Map_GetServerArchiveDrop="获取 ",~whichPlayer," 服务器里 ",~bosskey," 掉落的装备"
+DzAPI_Map_GetServerArchiveDropHint=""
+
+DzAPI_Map_GetPublicArchive=读取公共存档数据[DzApi]
+DzAPI_Map_GetPublicArchive="在公共存档读取 ",~whichPlayer,",名称:",~key," 里的数据"
+DzAPI_Map_GetPublicArchiveHint="只能读取只读公共存档，可读可写的全局存档请使用另一个API读取"
 
 [remove:TriggerActionStrings]
