@@ -97,15 +97,16 @@ namespace locvar
 		CC_PutBegin();
 
 		if (id == 0) id = s.mother_id;
-		if ((id == (0x10000 | CC_GUIID_YDWETimerStartMultiple))
+
+		if ((id & 0xFFFF) == CC_GUIID_YDWEExecuteTriggerMultiple)
+		{
+			BLZSStrPrintf(buff, 260, "call YDLocal5Set(%s, \"%s\", ", type_name, var_name);
+		}
+		else if ((id & 0x10000)
 			|| (id == CC_GUIID_YDWETimerStartMultiple)
 			|| (id == CC_GUIID_YDWERegisterTriggerMultiple))
 		{
 			BLZSStrPrintf(buff, 260, "call YDLocalSet(%s, %s, \"%s\", ", s.handle_string, type_name, var_name);
-		}
-		else if (id == CC_GUIID_YDWEExecuteTriggerMultiple)
-		{
-			BLZSStrPrintf(buff, 260, "call YDLocal5Set(%s, \"%s\", ", type_name, var_name);
 		}
 		// ------------------------- 2 ------------------------
 		else if ((id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
