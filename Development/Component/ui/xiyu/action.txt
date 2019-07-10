@@ -1,0 +1,46 @@
+﻿[dummyEx]
+title = "冲锋"
+description = "命令 ${触发单位} 朝 ${0.00}度方向，冲锋 ${0.00}距离，持续 ${0.00} 秒，附加特效 ${空字符串},并在${0.00}时间后删除特效，同时对半径 ${0.00}范围内的敌方单位造成 ${0.00} 伤害"
+comment = ""
+category = TC_XY
+[[.args]]
+type = unit
+default = "GetTriggerUnit"
+[[.args]]
+type = degree
+default = "RealUnitFacing"
+min = 0
+max = 360
+[[.args]]
+type = real
+default = 0
+[[.args]]
+type = real
+default = 0
+[[.args]]
+type = string
+default = " "
+[[.args]]
+type = real
+default = 0
+[[.args]]
+type = real
+default = 0
+[[.args]]
+type = real
+default = 0
+
+[Flyup]
+title = "飞行"
+description = "使${触发单位},提高${0.00}高度，持续${0.00} 秒"
+comment = "单位必须是能飞行的"
+category = TC_XY
+[[.args]]
+type = unit
+default = "GetTriggerUnit"
+[[.args]]
+type = real
+default = 0
+[[.args]]
+type = real
+default = 0

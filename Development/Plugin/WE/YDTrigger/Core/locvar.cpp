@@ -26,11 +26,11 @@ namespace locvar
 	guard::guard(int id, const char* name, const char* handle_string)
 		: old_(global)
 	{
-		current().last_mother_id     = global.mother_id;
+		current().last_mother_id = global.mother_id;
 		current().prev_handle_string = current().handle_string;
-		current().mother_id          = id;
-		current().name               = name;
-		current().handle_string      = handle_string;
+		current().mother_id = id;
+		current().name = name;
+		current().handle_string = handle_string;
 	}
 
 	guard::~guard()
@@ -54,14 +54,22 @@ namespace locvar
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocalGet(%s, %s, \"%s\")", s.prev_handle_string, type_name, var_name);
 		}
-		else if ((s.mother_id == CC_GUIID_YDWETimerStartMultiple) || (s.mother_id == CC_GUIID_YDWERegisterTriggerMultiple))
+		else if ((s.mother_id == CC_GUIID_YDWETimerStartMultiple)
+			|| (s.mother_id == CC_GUIID_YDWERegisterTriggerMultiple))
 		{
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocalGet(%s, %s, \"%s\")", s.handle_string, type_name, var_name);
 		}
+		//---------------------------------------- 1 -----------------------------------------
+		else if ((s.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (s.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
+		{
+			register_var[s.name][var_name] = type_name;
+			BLZSStrPrintf(buff, 260, "YDLocal6Get(\"%s\", %s, \"%s\")", s.handle_string, type_name, var_name);
+		}
 		else
 		{
-			if (!SaveLoadCheck_Set(var_name, (LPCSTR)type_name)) 
+			if (!SaveLoadCheck_Set(var_name, (LPCSTR)type_name))
 			{
 				char tmp[260];
 				Utf8toAscii((char*)var_name, tmp, 260);
@@ -88,17 +96,22 @@ namespace locvar
 
 		CC_PutBegin();
 
-		if (id == 0) id = s.mother_id; 
-
-		if ((id & 0xFFFF) == CC_GUIID_YDWEExecuteTriggerMultiple)
-		{
-			BLZSStrPrintf(buff, 260, "call YDLocal5Set(%s, \"%s\", ", type_name, var_name);
-		}
-		else if ((id & 0x10000)
+		if (id == 0) id = s.mother_id;
+		if ((id == (0x10000 | CC_GUIID_YDWETimerStartMultiple))
 			|| (id == CC_GUIID_YDWETimerStartMultiple)
 			|| (id == CC_GUIID_YDWERegisterTriggerMultiple))
 		{
 			BLZSStrPrintf(buff, 260, "call YDLocalSet(%s, %s, \"%s\", ", s.handle_string, type_name, var_name);
+		}
+		else if (id == CC_GUIID_YDWEExecuteTriggerMultiple)
+		{
+			BLZSStrPrintf(buff, 260, "call YDLocal5Set(%s, \"%s\", ", type_name, var_name);
+		}
+		// ------------------------- 2 ------------------------
+		else if ((id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (id <= CC_GUIID_DzFrameSetScriptMultiple))
+		{
+			BLZSStrPrintf(buff, 260, "call YDLocal6Set(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
 		else
 		{
@@ -125,7 +138,7 @@ namespace locvar
 
 		CC_PutEnd();
 
-		if (s.mother_id & 0x10000)
+		if (s.mother_id == (0x10000 | CC_GUIID_YDWETimerStartMultiple))
 		{
 			register_var[s.name].erase(var_name);
 		}
@@ -142,27 +155,35 @@ namespace locvar
 
 		if ((CC_TYPE__begin < var_type) && (var_type < CC_TYPE__end))
 		{
-			do_set(OutClass, TypeName[var_type], id, (LPCSTR)&GetGUIVar_Value(This, 1), global, [&](){ PUT_VAR(This, 2); } );
+			do_set(OutClass, TypeName[var_type], id, (LPCSTR)&GetGUIVar_Value(This, 1), global, [&]() { PUT_VAR(This, 2); });
 		}
 	}
 
 	void do_get_array(DWORD OutClass, const char* type_name, const char* var_name, const state& s, std::function<void(void)> index)
 	{
 		g_bDisableSaveLoadSystem = FALSE;
-		unsigned int hash = warcraft3::detail::string_hash(var_name);
+		unsigned int hash = warcraft3::detail::string_hash(var_name);(var_name);
 		hash = ((hash >> 24) & 0xFF) | (((hash >> 16) & 0xFF) << 8) | (((hash >> 8) & 0xFF) << 16) | ((hash & 0xFF) << 24);
 
 		char buff[260];
 
-		if ((s.mother_id & 0x10000) && (s.prev_handle_string != nullptr))
+		if ((s.mother_id == (0x10000 | (int)CC_GUIID_YDWETimerStartMultiple)) && (s.prev_handle_string != nullptr))
 		{
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocalArrayGet(%s, %s, \"%s\", ", s.prev_handle_string, type_name, var_name);
 		}
-		else if ((s.mother_id == CC_GUIID_YDWETimerStartMultiple) || (s.mother_id == CC_GUIID_YDWERegisterTriggerMultiple))
+		else if ((s.mother_id == CC_GUIID_YDWETimerStartMultiple)
+			|| (s.mother_id == CC_GUIID_YDWERegisterTriggerMultiple))
 		{
 			register_var[s.name][var_name] = type_name;
 			BLZSStrPrintf(buff, 260, "YDLocalArrayGet(%s, %s, \"%s\", ", s.handle_string, type_name, var_name);
+		}
+		// --------------------------------- 3 -----------------------------------
+		else if ((s.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (s.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
+		{
+			register_var[s.name][var_name] = type_name;
+			BLZSStrPrintf(buff, 260, "YDLocal6ArrayGet(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
 		else
 		{
@@ -191,7 +212,7 @@ namespace locvar
 	void do_set_array(DWORD OutClass, const char* type_name, int id, const char* var_name, const state& s, std::function<void(void)> index, std::function<void(void)> func)
 	{
 		g_bDisableSaveLoadSystem = FALSE;
-		unsigned int hash = warcraft3::detail::string_hash(var_name);
+		unsigned int hash = warcraft3::detail::string_hash(var_name);(var_name);
 		hash = ((hash >> 24) & 0xFF) | (((hash >> 16) & 0xFF) << 8) | (((hash >> 8) & 0xFF) << 16) | ((hash & 0xFF) << 24);
 
 		char buff[260];
@@ -199,16 +220,21 @@ namespace locvar
 		CC_PutBegin();
 
 		if (id == 0) id = s.mother_id;
-
-		if ((id & 0xFFFF) == CC_GUIID_YDWEExecuteTriggerMultiple)
-		{
-			BLZSStrPrintf(buff, 260, "call YDLocal5ArraySet(%s, \"%s\", ", type_name, var_name);
-		}
-		else if ((id & 0x10000)
+		if ((id == (0x10000 | CC_GUIID_YDWETimerStartMultiple))
 			|| (id == CC_GUIID_YDWETimerStartMultiple)
 			|| (id == CC_GUIID_YDWERegisterTriggerMultiple))
 		{
 			BLZSStrPrintf(buff, 260, "call YDLocalArraySet(%s, %s, \"%s\", ", s.handle_string, type_name, var_name);
+		}
+		else if (id == CC_GUIID_YDWEExecuteTriggerMultiple)
+		{
+			BLZSStrPrintf(buff, 260, "call YDLocal5ArraySet(%s, \"%s\", ", type_name, var_name);
+		}
+		//-------------------------- 4 --------------------------
+		else if ((id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple)
+			&& (id <= CC_GUIID_DzFrameSetScriptMultiple))
+		{
+			BLZSStrPrintf(buff, 260, "call YDLocal6ArraySet(\"%s\", %s, \"%s\", ", s.handle_string, type_name, var_name);
 		}
 		else
 		{
@@ -236,6 +262,11 @@ namespace locvar
 		PUT_CONST(")", 1);
 
 		CC_PutEnd();
+
+		if (s.mother_id == (0x10000 | CC_GUIID_YDWETimerStartMultiple))
+		{
+			//register_var[s.name].erase(var_name);
+		}
 	}
 
 	void get_array(DWORD This, DWORD OutClass, char* name, char* type_name)
@@ -307,8 +338,11 @@ namespace locvar
 
 	void return_before(DWORD This, DWORD OutClass)
 	{
+		//--------------------------- 5 -------------------------------
 		if (global.mother_id == CC_GUIID_YDWETimerStartMultiple
-			|| global.mother_id == CC_GUIID_YDWERegisterTriggerMultiple)
+			|| global.mother_id == CC_GUIID_YDWERegisterTriggerMultiple
+			|| (global.mother_id >= CC_GUIID_DzTriggerRegisterMouseEventMultiple
+			&& global.mother_id <= CC_GUIID_DzFrameSetScriptMultiple))
 		{
 			CC_PutLocal_End(This, OutClass, TRUE, FALSE);
 		}
@@ -334,7 +368,7 @@ namespace locvar
 	{
 		if (g_local_in_mainproc)
 		{
-			CC_PutBegin(); 
+			CC_PutBegin();
 			PUT_CONST("call YDLocal1Release()", 1);
 			CC_PutEnd();
 		}
@@ -345,21 +379,21 @@ namespace locvar
 		std::set<std::string> paramlist;
 
 		{
-			locvar::guard _tmp_guard_(0x10000 | id, name, handle_string);
+			locvar::guard _tmp_guard_((0x10000 | (int)CC_GUIID_YDWETimerStartMultiple), name, handle_string);
 
 			DWORD nItemCount, i;
 			DWORD nItemClass;
 			char NewName[260];
-			nItemCount = *(DWORD*)(This+0xC);
+			nItemCount = *(DWORD*)(This + 0xC);
 
 			for (i = 0; i < nItemCount; i++)
 			{
-				nItemClass = ((DWORD*)(*(DWORD*)(This+0x10)))[i];
-				if (*(DWORD*)(nItemClass+0x13C) != 0)
+				nItemClass = ((DWORD*)(*(DWORD*)(This + 0x10)))[i];
+				if (*(DWORD*)(nItemClass + 0x13C) != 0)
 				{
-					if ((index) == -1 || (*(DWORD*)(nItemClass+0x154) == index))
-					{  
-						switch (*(DWORD*)(nItemClass+0x138))
+					if ((index) == -1 || (*(DWORD*)(nItemClass + 0x154) == index))
+					{
+						switch (*(DWORD*)(nItemClass + 0x138))
 						{
 						case CC_GUIID_YDWESetAnyTypeLocalVariable:
 						{
@@ -369,29 +403,37 @@ namespace locvar
 							break;
 						}
 						case CC_GUIID_YDWESetAnyTypeLocalArray:
-							{
-								paramlist.insert((const char*)&GetGUIVar_Value(nItemClass, 1));
-								BLZSStrPrintf(NewName, 260, "%sFunc%03d", name, i+1);
-								locvar::set_array(nItemClass, OutClass, NewName, id);
-								break; 
-							}
+						{
+							paramlist.insert((const char*)&GetGUIVar_Value(nItemClass, 1));
+							BLZSStrPrintf(NewName, 260, "%sFunc%03d", name, i + 1);
+							locvar::set_array(nItemClass, OutClass, NewName, id);
+							break;
+						}
 						case CC_GUIID_YDWEExecuteTriggerMultiple:
 						case CC_GUIID_YDWETimerStartMultiple:
 						case CC_GUIID_YDWERegisterTriggerMultiple:
 							ShowError(OutClass, "WESTRING_ERROR_YDTRIGGER_ILLEGAL_PARAMETER");
 							break;
+						//---------------------------- 6 -----------------------------
+						case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+						case CC_GUIID_DzTriggerRegisterKeyEventMultiple:
+						case CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple:
+						case CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple:
+						case CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple:
+						case CC_GUIID_DzFrameSetUpdateCallbackMultiple:
+						case CC_GUIID_DzFrameSetScriptMultiple:
 						default:
-							{
-								CC_PutAction(nItemClass, OutClass, name, i, 0);
-							}
-							break;
+						{
+							CC_PutAction(nItemClass, OutClass, name, i, 0);
+						}
+						break;
 						}
 					}
 				}
 			}
 		}
 
-		foreach (auto it, register_var[name])
+		foreach(auto it, register_var[name])
 		{
 			if (paramlist.find(it.first) != paramlist.end())
 			{
@@ -399,21 +441,26 @@ namespace locvar
 			}
 
 			auto uiit = trigger_data_ui.find(it.first);
+			int temp_int = 0;
 			if (uiit == trigger_data_ui.end())
 			{
-				locvar::do_set(OutClass, it.second.c_str(), 0, it.first.c_str()
-					, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
-					, [&]()
-					{
-						locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global); 
-					}
+				if (index >= CC_GUIID_DzTriggerRegisterMouseEventMultiple && index <= CC_GUIID_DzFrameSetScriptMultiple)
+					temp_int = index;
+				locvar::do_set(OutClass, it.second.c_str(), temp_int, it.first.c_str()
+						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
+						, [&]()
+				{
+					locvar::do_get(OutClass, it.second.c_str(), it.first.c_str(), global);
+				}
 				);
 			}
 			else
 			{
-				locvar::do_set(OutClass, it.second.c_str(), 0, it.first.c_str()
-					, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
-					, [&]()
+				if (index == CC_GUIID_DzTriggerRegisterMouseEventMultiple && index <= CC_GUIID_DzFrameSetScriptMultiple)
+					temp_int = index;
+				locvar::do_set(OutClass, it.second.c_str(), temp_int, it.first.c_str()
+						, state(CC_GUIID_YDWETimerStartMultiple, name, handle_string)
+						, [&]()
 				{
 					if (global.mother_id == CC_GUIID_YDWETimerStartMultiple)
 					{
@@ -434,7 +481,7 @@ namespace locvar
 
 	bool trigger_data(DWORD This, DWORD OutClass, const char* name)
 	{
-		if (global.mother_id & 0x10000)
+		if (global.mother_id == (0x10000 | (int)CC_GUIID_YDWETimerStartMultiple))
 		{
 			if (global.last_mother_id != CC_GUIID_YDWETimerStartMultiple)
 				return false;
@@ -449,7 +496,7 @@ namespace locvar
 		{
 			return false;
 		}
-		
+
 		locvar::do_get(OutClass, it->second.c_str(), it->first.c_str(), global);
 		return true;
 	}

@@ -32,6 +32,15 @@ enum GUIID_User_Defined
   CC_GUIID_YDWEGetObjectPropertyString,
   CC_GUIID_YDWERegionMultiple,
   CC_GUIID_YDWEExecuteTriggerMultiple,
+ //ÍøÒ×DZAPI
+
+  CC_GUIID_DzTriggerRegisterMouseEventMultiple,
+  CC_GUIID_DzTriggerRegisterKeyEventMultiple,
+  CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple,
+  CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple,
+  CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple,
+  CC_GUIID_DzFrameSetUpdateCallbackMultiple,
+  CC_GUIID_DzFrameSetScriptMultiple,
 };
 //--------------------------------------------------------
 //  WE_Defined_ID

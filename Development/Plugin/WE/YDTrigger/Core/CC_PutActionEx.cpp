@@ -305,6 +305,130 @@ void _fastcall
 
 			break;
 		}
+	// 网易DZAPI
+	case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+	{
+
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterMouseEventMultiple, name, CC_GUIID_DzTriggerRegisterMouseEventMultiple);
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterMouseEventByCode( null, ", 0);
+		PUT_VAR(This, 2);
+		PUT_CONST(", ", 0);
+		PUT_VAR(This, 1);
+		PUT_CONST(", false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sMT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzTriggerRegisterKeyEventMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterKeyEventMultiple, name, CC_GUIID_DzTriggerRegisterKeyEventMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterKeyEventByCode( null, ", 0);
+		PUT_VAR(This, 2);
+		PUT_CONST(", ", 0);
+		PUT_VAR(This, 1);
+		PUT_CONST(", false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sKT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple, name, CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterMouseWheelEventByCode( null, false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sWT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple, name, CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterMouseMoveEventByCode( null, false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sMMT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple, name, CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzTriggerRegisterWindowResizeEventByCode( null, false", 0);
+		BLZSStrPrintf(buff, 260, ", function %sWRT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzFrameSetUpdateCallbackMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzFrameSetUpdateCallbackMultiple, name, CC_GUIID_DzFrameSetUpdateCallbackMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzFrameSetUpdateCallbackByCode( ", 0);
+		BLZSStrPrintf(buff, 260, "function %sCT)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
+	case CC_GUIID_DzFrameSetScriptMultiple:
+	{
+		locvar::params(This, OutClass, name, CC_GUIID_DzFrameSetScriptMultiple, name, CC_GUIID_DzFrameSetScriptMultiple);
+
+		CC_PutBegin();
+		PUT_CONST("if GetLocalPlayer() == ", 0);
+		PUT_VAR(This, 0);
+		PUT_CONST(" then", 1);
+		PUT_CONST("\tcall DzFrameSetScriptByCode( ", 0);
+		PUT_VAR(This, 2);
+		PUT_CONST(", ", 0);
+		PUT_VAR(This, 1);
+		BLZSStrPrintf(buff, 260, ", function %sFT, false)", name);
+		PUT_CONST(buff, 1);
+		PUT_CONST("endif", 1);
+		CC_PutEnd();
+
+		break;
+	}
 	case CC_GUIID_YDWERegisterTriggerFlush:
 		locvar::flush_in_trigger(This, OutClass);
 		break;

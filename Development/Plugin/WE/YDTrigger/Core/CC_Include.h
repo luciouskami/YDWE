@@ -14,4 +14,8 @@
 #define YDL_TIMER         STRING_YDWE_LOCAL"timer"
 #define YDL_TRIGGER       STRING_YDWE_LOCAL"trigger"
 
+//ÍøÒ×DZAPI
+
+#define STRING_DZ_LOCAL "dzl_"
+#define DZL_STRING        STRING_DZ_LOCAL"string"
 #endif

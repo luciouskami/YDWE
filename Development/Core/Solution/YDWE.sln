@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YDWE", "..\YDWE\YDWE.vcxproj", "{E25E1A38-134A-4727-A6A1-FF3A0A97A4C5}"
 EndProject
@@ -84,6 +84,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua54", "..\..\..\OpenSource\bee.lua\project\msvc\lua54.vcxproj", "{316B33ED-1056-48B0-ABF0-CE3CE55F7A17}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ffi", "..\..\..\OpenSource\bee.lua\project\msvc\ffi.vcxproj", "{076A366B-6B75-4D35-A6A9-CA680F0771E3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yd_dzclient_api", "..\..\Plugin\Warcraft3\yd_dzclient_api\yd_dzclient_api.vcxproj", "{E2A018CC-1B90-43FD-B427-B5037E12FE69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -293,6 +295,14 @@ Global
 		{076A366B-6B75-4D35-A6A9-CA680F0771E3}.Release|Win32.Build.0 = Release|Win32
 		{076A366B-6B75-4D35-A6A9-CA680F0771E3}.Release|x64.ActiveCfg = Release|x64
 		{076A366B-6B75-4D35-A6A9-CA680F0771E3}.Release|x64.Build.0 = Release|x64
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Debug|Win32.Build.0 = Debug|Win32
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Debug|x64.ActiveCfg = Debug|x64
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Debug|x64.Build.0 = Debug|x64
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Release|Win32.ActiveCfg = Release|Win32
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Release|Win32.Build.0 = Release|Win32
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Release|x64.ActiveCfg = Release|x64
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -327,6 +337,7 @@ Global
 		{355C2493-0A78-490B-971A-BBDB0E2819EF} = {5EAEB25D-7F28-4226-BA47-EAB24EBB7439}
 		{316B33ED-1056-48B0-ABF0-CE3CE55F7A17} = {5EAEB25D-7F28-4226-BA47-EAB24EBB7439}
 		{076A366B-6B75-4D35-A6A9-CA680F0771E3} = {5EAEB25D-7F28-4226-BA47-EAB24EBB7439}
+		{E2A018CC-1B90-43FD-B427-B5037E12FE69} = {9E195292-7C13-4F56-A280-67C8A1B908DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2384391F-A0A4-4E20-8F5C-E7AD0F7A9720}

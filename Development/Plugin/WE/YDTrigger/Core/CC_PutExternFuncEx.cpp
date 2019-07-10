@@ -169,6 +169,111 @@ void _fastcall CC_PutExternFuncEx(DWORD This, DWORD OutClass, char* name)
 			PUT_CONST("", 1);
 		}
 		break;
+	// LH Mark 5 Start
+	case CC_GUIID_DzTriggerRegisterMouseEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterMouseEventMultiple, name, name);
+
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sMT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		// 0-???? 1-??¡Á¡Â
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzTriggerRegisterKeyEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterKeyEventMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sKT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sWT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sMMT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sWRT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzFrameSetUpdateCallbackMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzFrameSetUpdateCallbackMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sCT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	case CC_GUIID_DzFrameSetScriptMultiple:
+	{
+		locvar::guard _tmp_guard_(CC_GUIID_DzFrameSetScriptMultiple, name, name);
+		CC_PutExternFuncEx_TopDown(This, OutClass, name);
+		char buff[260];
+		BLZSStrPrintf(buff, 260, "function %sFT takes nothing returns nothing", name);
+		PUT_CONST(buff, 1);
+		CC_PutLocal_Begin(This, OutClass, TRUE, FALSE);
+		CC_PutBlock_Action(This, OutClass, name, 1);
+		CC_PutLocal_End(This, OutClass, TRUE, TRUE);
+		PUT_CONST("endfunction", 1);
+		PUT_CONST("", 1);
+	}
+	break;
+	// LH Mark 5 End
 	default:
 		CC_PutExternFuncEx_TopDown(This, OutClass, name);
 		break;

@@ -45,6 +45,7 @@ typename35_fogstate=0,typename,35,迷雾
 typename36_fogmodifier=0,typename,36,可见度修正器
 typename37_radian=0,typename,37,弧度
 typename38_degree=0,typename,38,角度
+typename39_frame=0,typename,39,Frame
 objecttype00_abilcode=0,objecttype,YDWE_OBJECT_TYPE_ABILITY,WESTRING_OBJTAB_ABILITIES
 objecttype01_buffcode=0,objecttype,YDWE_OBJECT_TYPE_BUFF,WESTRING_OBJTAB_BUFFS
 objecttype02_unitcode=0,objecttype,YDWE_OBJECT_TYPE_UNIT,WESTRING_OBJTAB_UNITS

@@ -32,6 +32,55 @@ static multiples_mgr mgr = {
 		}
 	},
 	{
+		CC_GUIID_DzTriggerRegisterMouseEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+		{
+		CC_GUIID_DzTriggerRegisterKeyEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
+		CC_GUIID_DzTriggerRegisterMouseWheelEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
+		CC_GUIID_DzTriggerRegisterMouseMoveEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
+		CC_GUIID_DzTriggerRegisterWindowResizeEventMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
+		CC_GUIID_DzFrameSetUpdateCallbackMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
+		CC_GUIID_DzFrameSetScriptMultiple,
+		{
+			{ CC_GUI_TYPE_ACTION, "WESTRING_PARAMETERS" },
+			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },
+		}
+	},
+	{
 		CC_GUIID_YDWEEnumUnitsInRangeMultiple,
 		{
 			{ CC_GUI_TYPE_ACTION, "WESTRING_ACTIONS" },

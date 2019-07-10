@@ -55,6 +55,7 @@ std::map<std::string_view, unsigned int> g_guid_table = {
 	GUIID_Table_Put(YDWETimerStartMultiple),
 	GUIID_Table_Put(YDWETimerStartFlush),
 	GUIID_Table_Put(YDWERegisterTriggerMultiple),
+	GUIID_Table_Put(DzTriggerRegisterMouseEventMultiple),
 	GUIID_Table_Put(YDWERegisterTriggerFlush),
 	GUIID_Table_Put(YDWEForLoopLocVarMultiple),
 	GUIID_Table_Put(YDWEForLoopLocVarIndex),
