@@ -27,15 +27,15 @@ FrameEvent_Evenr_Pressed=0,frameevent,1,鼠标点击
 FrameEvent_Mouse_Enter=0,frameevent,2,鼠标进入
 FrameEvent_Mouse_Leave=0,frameevent,3,鼠标离开
 FrameEvent_Mouse_Up=0,frameevent,4,鼠标释放
-FrameEvent_Mouse_Down=0,frameevent,5,未知5
+FrameEvent_Mouse_Down=0,frameevent,5,鼠标往下滚
 FrameEvent_Mouse_Wheel=0,frameevent,6,鼠标轮滚
-FrameEvent_Checkbox_Checked=0,frameevent,7,未知7
-FrameEvent_Checkbox_Unchecked=0,frameevent,8,未知8
-FrameEvent_Editbox_Text_Changed=0,frameevent,9,未知9
-FrameEvent_Popupmenu_Item_Change_Start=0,frameevent,10,未知10
-FrameEvent_Popupmenu_Item_Changed_Start=0,frameevent,11,未知11
+FrameEvent_Checkbox_Checked=0,frameevent,7,复选框事件
+FrameEvent_Checkbox_Unchecked=0,frameevent,8,取消复选框
+FrameEvent_Editbox_Text_Changed=0,frameevent,9,输入框文本改变
+FrameEvent_Popupmenu_Item_Change_Start=0,frameevent,10,子菜单开始改变
+FrameEvent_Popupmenu_Item_Changed_Start=0,frameevent,11,子菜单项目改变了
 FrameEvent_Mouse_Doubleclick=0,frameevent,12,鼠标双击
-FrameEvent_Sprite_Anim_Update=0,frameevent,13,未知13
+FrameEvent_Sprite_Anim_Update=0,frameevent,13,图像更新
 
 MouseKey_Mouse_Left=0,mousekey,1,鼠标左键
 MouseKey_Mouse_Right=0,mousekey,2,鼠标右键
@@ -81,16 +81,16 @@ GameKey_7=0,gamekey,55,7
 GameKey_8=0,gamekey,56,8
 GameKey_9=0,gamekey,57,9
 
-GameKey_Tab=0,gamekey,515,Tab
+GameKey_Tab=0,gamekey,9,Tab
 GameKey_Space=0,gamekey,32,空格
-GameKey_Enter=0,gamekey,513,回车
-GameKey_Backspace=0,gamekey,514,退格
-GameKey_Shift=0,gamekey,0,Shift
+GameKey_Enter=0,gamekey,13,回车
+GameKey_Backspace=0,gamekey,8,退格
+GameKey_Shift=0,gamekey,16,Shift
 
-GameKey_Tab=0,gamekey,516,→
-//GameKey_Tab=0,gamekey,517,↑
-//GameKey_Tab=0,gamekey,518,←
-//GameKey_Tab=0,gamekey,519,↓
+GameKey_Tab=0,gamekey,39,→
+//GameKey_Tab=0,gamekey,38,↑
+//GameKey_Tab=0,gamekey,37,←
+//GameKey_Tab=0,gamekey,40,↓
 
 GameKeyAction_Press=0,gamekeyaction,1,点击
 GameKeyAction_Release=0,gamekeyaction,0,释放
