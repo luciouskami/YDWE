@@ -1,3 +1,0 @@
-LIBRARY "yd_jass_api"
-EXPORTS
-	Initialize
