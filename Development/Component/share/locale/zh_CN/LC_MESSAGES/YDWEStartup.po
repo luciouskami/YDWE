@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: YDWEStartup\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-10 10:33+0800\n"
-"PO-Revision-Date: 2016-11-10 10:33+0800\n"
+"PO-Revision-Date: 2018-08-14 09:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: YDWE <417214250@qq.com>\n"
 "Language: zh_CN\n"
@@ -13,15 +13,14 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
 "X-Poedit-Basepath: ../../../../../Core/YDWEStartup\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: DllMain.cpp:184
 msgid "Error YDWE directory."
 msgstr ""
-"YDWE路径含有非法的字符，这可能是由于你的操作系统区域并非简体中文而YDWE路径里"
-"却包含了简体中文导致的。如果你不明白上述原因，请将YDWE放到英文路径下，再次尝"
-"试。"
+"WE路径含有非法的字符，这可能是由于你的操作系统区域并非简体中文而WE路径里却包"
+"含了简体中文导致的。如果你不明白上述原因，请将WE放到英文路径下，再次尝试。"
 
 #: DllMain.cpp:188
 msgid "Please choose your Warcraft 3 installation directory"
@@ -29,15 +28,15 @@ msgstr "请选择你的《魔兽争霸III》目录"
 
 #: DllMain.cpp:202
 msgid "Cannot delete YDDllFixer.dll in war3 directory."
-msgstr "War3目录有有YDDllFixer.dll并且无法删除，这会导致YDWE无法启动。"
+msgstr "War3目录有有YDDllFixer.dll并且无法删除，这会导致WE无法启动。"
 
 #: DllMain.cpp:210
 msgid "Cannot delete YDDllFixer.dll in ydwe directory."
-msgstr "YDWE目录有有YDDllFixer.dll并且无法删除，这会导致YDWE无法启动。"
+msgstr "WE目录有有YDDllFixer.dll并且无法删除，这会导致WE无法启动。"
 
 #: DllMain.cpp:230
 msgid "Cannot find main executable file of world editor in YDWE/bin directory."
-msgstr "YDWE/bin文件夹下找不到WE的主程序，请确认YDWE文件的完整性。"
+msgstr "WE/bin文件夹下找不到WE的主程序，请确认WE文件的完整性。"
 
 #: DllMain.cpp:240
 msgid "Failed to launch world editor."

@@ -1,0 +1,10 @@
+[TriggerTypes]
+platformFunction=1,0,0,平台功能,integer
+optionEnable=1,0,0,状态,boolean
+
+[TriggerParams]
+platformFunction_1=0,platformFunction,1,锁定视距
+platformFunction_2=0,platformFunction,2,显血/显蓝
+
+optionEnable_Enable=0,optionEnable,true,开启
+optionEnable_Disable=0,optionEnable,false,关闭

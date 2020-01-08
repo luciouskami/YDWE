@@ -60,13 +60,13 @@ static void ShowSplash(fs::path const& ydwe_path)
 			base::ini::read(table, buf.c_str());
 
 			do {
-				fs::path blp = ydwe_path / L"share" / L"mpq" / L"units" / table["WorldEditArt"]["War3XLogo"];
+				fs::path blp = ydwe_path / L"share" / L"mpq" / L"units" / table["WorldEditArt"]["PlatformLogo"];
 				if (fs::exists(blp))
 				{
 					if (Blp2Bmp(blp.wstring().c_str(), bmp.wstring().c_str()))
 						break;
 				}
-				blp = ydwe_path / L"share" / L"mpq" / L"units" / table["WorldEditArt"]["War3Logo"];
+				blp = ydwe_path / L"share" / L"mpq" / L"units" / table["WorldEditArt"]["War3XLogo"];
 				if (fs::exists(blp))
 				{
 					if (Blp2Bmp(blp.wstring().c_str(), bmp.wstring().c_str()))
@@ -77,7 +77,7 @@ static void ShowSplash(fs::path const& ydwe_path)
 		catch (...) {
 		}
 	}
-
+	/*
 	if (fs::exists(bmp))
 	{
 		try {
@@ -85,13 +85,13 @@ static void ShowSplash(fs::path const& ydwe_path)
 			CSplash display;
 			display.SetBitmap(bmp.wstring().c_str());
 			display.SetTransparentColor(RGB(128, 128, 128));
-			display.SetText(base::format(L"YDWE %d.%d.%d.%d", fv.major, fv.minor, fv.revision, fv.build).c_str(), 10, 10, 10, 20);
+			//display.SetText(base::format(L"YDWE %d.%d.%d.%d", fv.major, fv.minor, fv.revision, fv.build).c_str(), 10, 10, 10, 20);
 			display.Show();
-			Sleep(1000);
+			Sleep(2000);
 			display.Close();
 		} catch (...) {
 		}
-	}
+	}*/
 }
 
 static void CheckedCopyFile(const fs::path &source, const fs::path &destination)

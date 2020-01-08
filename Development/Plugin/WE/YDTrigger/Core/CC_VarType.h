@@ -75,6 +75,8 @@ enum VARTYPE_User_Defined
   CC_TYPE_fogmodifier,
   CC_TYPE_radian,
   CC_TYPE_degree,
+  CC_TYPE_frame,
+  // LH Mark 逆天局部变量 种类
   CC_TYPE__end,
 };
 

@@ -38,9 +38,14 @@ local function show_cjass_version()
 	sys.spawn(command_line, fs.ydwe_path())
 end
 
--- 打开官网
-local function open_offical_site()
-	os.execute('explorer "http://www.ydwe.net"')
+-- 打开平台官网
+local function open_platform_site()
+	os.execute('explorer "http://dz.163.com"')
+end
+
+-- 打开作者之家
+local function open_authors_home_site()
+	os.execute('explorer "http://rpg.dz.163.com/"')
 end
 
 -- Lua测试
@@ -94,9 +99,11 @@ function event.EVENT_INIT_MENU(event_data)
 	menu:add(_("Show las&t compile result"), show_last_error)
 	menu:add(_("Show J&assHelper version"), show_jasshelper_version)
 	menu:add(_("Show c&Jass version"), show_cjass_version)
-	menu:add(_("Launch YDWE &official website"), open_offical_site)
 	menu:add(_("&Lua Test"), lua_test)
-	menu:add(_("Cre&dits"), show_credit)
+	local menu2 = gui.menu(event_data.main_menu_handle, _("&Platform"))
+	menu2:add(_("Launch Platform &official website"), open_platform_site)
+	menu2:add(_("Launch Author's &Home"), open_authors_home_site)
+	menu2:add(_("Cre&dits"), show_credit)
 
 	main_window_handle = event_data.main_window_handle
 

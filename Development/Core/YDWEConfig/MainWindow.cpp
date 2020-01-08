@@ -102,7 +102,7 @@ CMainWindow::CMainWindow()
 {
 	try
 	{
-		m_ydwe_path = base::path::get(base::path::DIR_EXE).remove_filename().remove_filename() / L"YDWE.exe";
+		m_ydwe_path = base::path::get(base::path::DIR_EXE).remove_filename().remove_filename() / L"WorldEdit.exe";
 	}
 	catch (...)
 	{
@@ -578,7 +578,7 @@ void CMainWindow::InitPatchUI(base::ini::table& table)
 
 		m_pWar3PatchList->SetEnabled("2" == table["War3Patch"]["Option"]);
 	}
-
+	/*
 	if (empty)
 	{
 		DuiLib::CLabelUI* node;
@@ -588,7 +588,7 @@ void CMainWindow::InitPatchUI(base::ini::table& table)
 		node->SetManager(m_pWar3PatchList->GetManager(), m_pWar3PatchList, false);
 		node->SetAttribute(L"font", L"2");
 		node->SetAttribute(L"text", L"请先去www.ydwe.net下载补丁包");
-	}
+	}*/
 }
 
 void CMainWindow::DonePatchUI(base::ini::table& table)
